@@ -1,4 +1,4 @@
-// Lab 10 Ess app.js
+// Twitter ToDo app.js
 
 var express = require('express');
 var path = require('path');
@@ -7,6 +7,11 @@ var logger = require('morgan');
 var mongoose = require('mongoose');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+
+// new requires
+var session = require('express-session');
+var passport = require('passport');
+var flash = require('connect-flash');
 
 // add Mongo, Mongo Object ID and assert
 // var MongoClient = require('mongodb').MongoClient;
@@ -36,7 +41,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// add this for passport
+// add this for passport DO WE NEED IF WE'RE DOING TWITTER?
 app.use(session({
 	secret: '23409834690234359182390'
 }));

@@ -8,7 +8,7 @@ var Task = require('../models/task.js')
 
 /* GET */
 // Gets a list of NOT completed tasks
-router.get('/', function (req, res, next) {
+router.get('/taskStart', function (req, res, next) {
 	
 	Task.find( { completed : false}, function (error, allTasks) {
 		if (error)  // get an allTasks (array) unless there is an error

@@ -12,12 +12,12 @@ module.exports = function(passport){
 	// serialize (save to disk - a database) and
 	// unserialize (extract from database) sessions
 	
-	// save user in session store
+	// save user in session store FOR TWITTER?
 	passport.serializeUser(function(user, done){
 		done(null, user.id);
 	});
 	
-	// get user by ID, from session store
+	// get user by ID, from session store DON'T NEED FOR TWITTER?
 	passport.deserializeUser(function(id, done){
 		User.findById(id, function(err, user){
 			done(err, user);
@@ -67,7 +67,7 @@ module.exports = function(passport){
     })
   }));
 	
-	// sign up new user
+	// sign up new user NOT FOR TWITTER
 	passport.use('local-signup', new LocalStrategy( {
 		usernameField: 'username',
 		passwordField: 'password',
@@ -108,13 +108,13 @@ module.exports = function(passport){
 		
 	} )); // passport.use
 	
-	passport.use('local-login', new LocalStrategy({
+	passport.use('local-login', new LocalStrategy({  // FOR TWITTER?
       usernameField:'username',
       passwordField:'password',
       passReqToCallback : true
     },
 
-    function(req, username, password, done){
+    function(req, username, password, done){  // FOR TWITTER?
       process.nextTick(function() {
         User.findOne({'local.username': username}, function (err, user) {
 
